@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>心囚　課文與字音字形</title>
+<style>
+:root{--bg:#fbf8f1;--fg:#2b2622;--mut:#7a7168;--card:#fff;--line:#e4dccd;--ac:#b8442f;--ac2:#2f6f6a;--hl:#fff1c2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1a17;--fg:#ece6dc;--mut:#a39a8e;--card:#26231f;--line:#3b362f;--ac:#e8806b;--ac2:#6cc0b8;--hl:#4a3f1c}}
+:root[data-theme="dark"]{--bg:#1c1a17;--fg:#ece6dc;--mut:#a39a8e;--card:#26231f;--line:#3b362f;--ac:#e8806b;--ac2:#6cc0b8;--hl:#4a3f1c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.9 "Noto Serif TC","PingFang TC","Microsoft JhengHei",serif}
+main{max-width:860px;margin:auto;padding:16px}
+h1{font-size:1.8rem;margin:.6em 0 .2em}
+h2{font-size:1.3rem;border-left:6px solid var(--ac);padding-left:.5em;margin:2em 0 .6em}
+h3{font-size:1.1rem;color:var(--ac2);margin:1.6em 0 .4em}
+.sub{color:var(--mut);margin:0 0 .8em}
+button{font:inherit;font-size:.9rem;padding:.3em .9em;border:1px solid var(--ac);background:var(--card);color:var(--ac);border-radius:999px;cursor:pointer;margin:0 .4em .4em 0}
+button.on{background:var(--ac);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.6em 1em;margin:.8em 0}
+.card p{margin:.3em 0}.note{font-size:.88rem;color:var(--mut);line-height:1.7}.rh{font-size:.9rem;color:var(--ac)}
+.n{display:inline-block;background:var(--ac);color:#fff;border-radius:50%;width:1.6em;height:1.6em;line-height:1.6em;text-align:center;font-size:.8rem;margin-right:.4em}
+.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:560px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:.3em .6em;font-size:.95rem;line-height:1.6;vertical-align:middle}
+th{background:var(--hl)}td.c{font-size:1.8rem;text-align:center;width:3em}td.y{color:var(--ac);white-space:nowrap}
+.mask .m:not(.on){background:var(--line);color:transparent;cursor:pointer;border-radius:4px;user-select:none}
+.q{margin:1em 0;padding:.6em 1em;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.q .o{display:block;width:100%;text-align:left;margin:.3em 0;border-radius:8px}
+.ok{background:#2f8f5b!important;color:#fff!important;border-color:#2f8f5b!important}.ng{background:#c0392b!important;color:#fff!important;border-color:#c0392b!important}
+#sc{font-weight:bold;color:var(--ac2)}
+@media print{.np{display:none!important}body{font-size:13px}.mask .m:not(.on){background:none;color:inherit}h2{break-after:avoid}tr,.card{break-inside:avoid}}
+</style></head><body><main>
+<h1>心囚　課文與字音字形</h1>
+<p class="sub">國文 1 上 第六課。先讀課文與結構，再依形近字分類整理字音字形，最後做即時測驗。</p>
+<div class="np"><button id="mk">遮住釋義（自我測驗）</button><button onclick="print()">列印講義版</button>
+<p class="note">遮住後點一下釋義格即可看答案。</p></div>
+
+<h2>一、課文</h2>
+<div id="txt"></div>
+<h3>結構與賞析</h3>
+<div class="card">
+<p><b>文體：</b>論說文；以自身經驗為例（實例故事法）。</p>
+<p><b>結構：</b>一至四段「敘」——身體被病痛禁錮；以「剛剛相反」為轉折；五至七段「議」——身體的病痛只能囚禁身體，「心囚」才是真正的關鍵；第八段以反詰（激問）作結。</p>
+<p><b>手法：</b>以「正反」對比（映襯）寫出兩種截然不同的人生態度；首尾呼應（首段「囚犯」↔ 末段「囚犯」）。</p>
+<p><b>主旨：</b>「心」才是一切的主宰。有積極、樂觀的心態，才能享有真正的自由與快樂。<span class="note">主宰：支配、掌握人或事物的力量、主體。</span></p>
+</div>
+
+<h2>二、字音字形整理（依形近字分類）</h2>
+<div id="tb"></div>
+
+<h2 class="np">三、即時選擇題</h2>
+<div class="np"><p>共 <span id="tot">0</span> 題　已作答 <span id="an">0</span>　答對 <span id="rt">0</span>　<button id="rq">重新出題</button></p><div id="qs"></div></div>
+</main>
+<script>
+const P=[
+["在許多人眼裡，我看來多麼像是一個被病痛禁錮在床的犯人。","禁錮：囚禁，錮ㄍㄨˋ。","首段點出「囚犯」，與第八段首尾呼應。"],
+["是的，自從小學六年級時，我被一種叫做「類風溼關節炎」的怪病纏身之後，就逐漸失去活動的自由。年復一年，我全身的關節都受到病魔的「轄制」，有如一道道無形的鐐銬。","轄制：管轄限制，轄ㄒㄧㄚˊ。鐐銬：ㄌㄧㄠˊ ㄎㄠˋ，刑具，比喻束縛。復：又、再。","轉化（擬人）：病魔的「轄制」；譬喻（明喻）：有如一道道無形的鐐銬。"],
+["腿不能行，肩不能舉，手不能彎，頭也不能自由轉動。甚至，我連吃一口心愛的牛肉乾的權利也被剝奪了，因為咬不動。","剝奪：強制奪取。舉：抬起。","排比、類疊（「不能」）。"],
+["二十多年來，生活的天地僅限於六席大的斗室之中，屋外春去秋來，花開花謝，似乎都與我無干。就像一個被判無期徒刑的犯人，不知何年何月才能重見「天日」。","席：量詞，日式房間的大小單位，一席長 180、寬 90 公分（≠「席不暇暖」，比喻奔走忙碌、沒有休息）。斗室：狹小的房間。無干：沒有關係，干＝關聯。","譬喻（明喻）；句中對：春去秋來、花開花謝。"],
+["想像中，這樣的「犯人」一定是蒼白憔悴、鬱鬱寡歡的吧！剛剛相反，因為我了解真正能夠囚住人的，不是身體上的疾病，而是心理上失望、悲觀、頹喪、憤怒、憂慮，築成了一面看不見的網，隨時準備將我陷在中間。一個人只要能突破心靈的枷鎖，這個世界就再也沒有什麼能困住他的了。如今，我活得無憂無慮，也自由自在。而世上多的是身體健康，卻心理不健全的人；多的是表面歡樂，卻心中痛苦的人；多的是行動自如，卻找不到一條正確人生方向的人。","憔悴：ㄑㄧㄠˊ ㄘㄨㄟˋ，面色黃瘦、沒有精神。鬱鬱寡歡：悶悶不樂（亦作「抑鬱寡歡」），鬱ㄩˋ，寡＝少。頹喪：ㄊㄨㄟˊ ㄙㄤˋ，情緒消沉低落。枷鎖：ㄐㄧㄚ，刑具，比喻束縛。","轉化（形象化）：築成一面看不見的網；排比、映襯：多的是…卻…；「無憂無慮」不是雙重否定。"],
+["有些人看似生活得繁華熱鬧，卻往往是天底下最寂寞的人，因為他們把自己的心封閉了。","","排比、映襯：看似繁華熱鬧 ↔ 最寂寞。"],
+["還有那些沉溺在罪惡中，無法自拔，迷戀在情慾中，無法脫身，以及為名利權勢所左右，迷失了自己的人，他們看似自由，卻心陷囹圄。","沉溺：ㄔㄣˊ ㄋㄧˋ，陷於不好的嗜好或境地。左右：影響、控制。囹圄：ㄌㄧㄥˊ ㄩˇ，牢獄。","映襯：看似自由 ↔ 心陷囹圄；轉化（形象化）。"],
+["比起我，到底誰更像是囚犯呢？","","設問（激問）；與首段「囚犯」前後呼應。"]];
+document.getElementById("txt").innerHTML=P.map((p,i)=>`<div class="card"><p><span class="n">${i+1}</span>${p[0]}</p>${p[1]?`<p class="note">注釋：${p[1]}</p>`:""}<p class="rh">${p[2]}</p></div>`).join("");
+
+// [字,注音,[[釋義,[詞語]]]]
+const G=[
+["囚",[["囚","ㄑㄧㄡˊ",[["拘禁，動",["「囚」禁","被「囚」"]],["被拘禁的犯人或俘虜，名",["死「囚」","階下「囚」"]]]]]],
+["俠・陝・狹・挾",[
+["俠","ㄒㄧㄚˊ",[["見義勇為、抑強扶弱的人，名",["豪「俠」","遊「俠」"]],["見義勇為、抑強扶弱的事，名",["行「俠」仗義"]],["濟弱抑強、見義勇為的，形",["「俠」客","「俠」骨柔情"]]]],
+["陝","ㄕㄢˇ",[["陝西省的簡稱",["「陝」北"]]]],
+["狹","ㄒㄧㄚˊ",[["窄小的、不寬廣的，形",["地「狹」人稠","「狹」窄"]],["比喻仇人相遇",["「狹」路相逢"]]]],
+["挾","ㄒㄧㄚˊ",[["控制、脅迫，動",["「挾」持","「挾」天子以令諸侯","要「挾」"]],["懷藏、隱藏，動（帶著仇怨向某人報復）",["「挾」怨報復"]],["持握、持有，動",["帶長劍兮「挾」秦弓","而「挾」重器多也"]],["夾在腋下、夾持，動（比喻做絕對辦不到的事）",["「挾」太山以超北海"]],["倚仗、倚持，動",["「挾」恃","不「挾」長，不「挾」貴","「挾」勢弄權"]]]]]],
+["峽・浹",[
+["峽","ㄒㄧㄚˊ",[["陸塊之間的狹長海道，名",["臺灣海「峽」"]]]],
+["浹","ㄐㄧㄚˊ",[["透澈、浸透，動",["不「浹」於骨髓","汗流「浹」背"]],["通達，動",["「浹」萬物之變"]],["遍，副",["「浹」地交流"]]]]]],
+["錮・涸・箇・痼",[
+["錮","ㄍㄨˋ",[["囚禁、監禁，動",["禁「錮」"]]]],
+["涸","ㄏㄜˊ",[["水乾竭、乾枯，形",["乾「涸」"]],["比喻陷處困境、急需救援的人或物",["「涸」轍之鮒"]]]],
+["箇","ㄍㄜˋ",[["此、其，代（也作「個」中滋味）",["「箇」中滋味"]]]],
+["痼","ㄍㄨˋ",[["根深蒂固，難以治療矯正的，形",["「痼」疾","「痼」習"]]]]]],
+["鐐・僚・繚・潦・燎・撩（ㄌㄧㄠˊ）",[
+["鐐","ㄌㄧㄠˊ",[["鎖住腳的刑具，名",["「鐐」銬"]]]],
+["僚","ㄌㄧㄠˊ",[["官員，名",["官「僚」"]]]],
+["繚","ㄌㄧㄠˊ",[["纏繞，動",["煙霧「繚」繞"]]]],
+["潦","ㄌㄧㄠˊ",[["草率的，形",["「潦」草"]],["頹廢的，形",["窮困「潦」倒"]]]],
+["燎","ㄌㄧㄠˊ",[["焚燒，動（比喻小事能釀成大禍）",["星火「燎」原"]]]],
+["撩","ㄌㄧㄠˊ",[["紛亂的，形",["眼花「撩」亂"]],["挑弄、逗引，動",["姿態「撩」人"]]]]]],
+["銬・拷・烤",[
+["銬","ㄎㄠˋ",[["戴在犯人手上的刑具，名",["手「銬」"]]]],
+["拷","ㄎㄠˇ",[["刑訊、用刑具逼打，動",["「拷」問","嚴刑「拷」打"]]]],
+["烤","ㄎㄠˇ",[["",["「烤」肉"]]]]]],
+["憔・樵・瞧・蕉・礁",[
+["憔","ㄑㄧㄠˊ",[["衰弱疲憊、失神的樣子，形",["「憔」悴"]]]],
+["樵","ㄑㄧㄠˊ",[["打柴的人，名",["「樵」夫"]]]],
+["瞧","ㄑㄧㄠˊ",[["看，動",["「瞧」見","「瞧」不起"]]]],
+["蕉","ㄐㄧㄠ",[["",["香「蕉」"]]]],
+["礁","ㄐㄧㄠ",[["在江河、海洋中，隱藏於水面下或浮現在水面上的岩石，名",["暗「礁」"]]]]]],
+["悴・萃・瘁・粹・淬・猝",[
+["悴","ㄘㄨㄟˋ",[["瘦弱的、枯槁的，形",["憔「悴」"]]]],
+["萃","ㄘㄨㄟˋ",[["聚集，動",["人文薈「萃」"]],["同類、群類，名",["出類拔「萃」"]]]],
+["瘁","ㄘㄨㄟˋ",[["勞苦、勞累，動",["哀哀父母，生我勞「瘁」"]],["竭盡心力，報效國家",["鞠躬盡「瘁」"]],["勞累生病，動",["心力交「瘁」"]]]],
+["粹","ㄘㄨㄟˋ",[["人、物、事理的精華，名",["國「粹」"]],["純美無雜的，形",["精「粹」"]]]],
+["淬","ㄘㄨㄟˋ",[["磨鍊，動",["「淬」礪"]]]],
+["猝","ㄘㄨˋ",[["突然地，副（忽然發生，來不及防備）",["「猝」死","「猝」不及防","倉「猝」"]]]]]],
+["枷・痂・珈・伽・咖",[
+["枷","ㄐㄧㄚ",[["古時套在犯人脖子上的刑具，名",["「枷」鎖"]]]],
+["痂","ㄐㄧㄚ",[["傷口痊癒時，由血小板、膠原蛋白和廢死細胞等凝結而成的硬塊",["結「痂」"]]]],
+["珈","ㄐㄧㄚ",[["古代婦人的首飾，名",[]]]],
+["伽","ㄐㄧㄚ",[["",["瑜「伽」"]]]],
+["咖","ㄎㄚ",[["譯音用字",["「咖」啡"]]]]]],
+["陷・餡・諂",[
+["陷","ㄒㄧㄢˋ",[["沒入、沉入，動",["沉「陷」","「陷」入泥中"]],["地下坑穴，泛指害人的陰謀，名",["「陷」阱"]]]],
+["餡","ㄒㄧㄢˋ",[["包在米、麵等食物中的作料，名",["豆沙「餡」"]]]],
+["諂","ㄔㄢˇ",[["奉承、巴結，動",["逢迎「諂」媚"]]]]]],
+["左右（一詞多義）",[
+["左右","",[["上下、光景；多放在數量詞後，表示約略之數",["三十歲「左右」"]],["幫助、輔助，動",["他是媽媽的「左右」手"]],["身邊",["母親總是陪伴在我「左右」"]],["稱跟從的侍者",["「左右」欲刃相如"]],["影響、控制，動（課文）",["為名利權勢所「左右」"]]]]]]
+];
+document.getElementById("tb").innerHTML=G.map(([t,rs])=>`<h3>${t}</h3><div class="wrap"><table><tr><th>字</th><th>注音</th><th>釋義</th><th>詞語</th></tr>${rs.map(([c,y,ss])=>ss.map((s,i)=>`<tr>${i?"":`<td class="c" rowspan="${ss.length}">${c}</td><td class="y" rowspan="${ss.length}">${y}</td>`}<td><span class="m">${s[0]||"—"}</span></td><td>${s[1].join("　")||"—"}</td></tr>`).join("")).join("")}</table></div>`).join("");
+
+const mk=document.getElementById("mk");
+mk.onclick=()=>{const on=document.body.classList.toggle("mask");mk.classList.toggle("on",on);document.querySelectorAll(".m").forEach(e=>e.classList.remove("on"))};
+document.addEventListener("click",e=>{if(document.body.classList.contains("mask")&&e.target.classList.contains("m"))e.target.classList.toggle("on")});
+
+// 測驗
+const sh=a=>[...a].sort(()=>Math.random()-.5);
+const Q=[];
+G.forEach(([t,rs])=>{if(rs.length<2)return;const ch=rs.map(r=>r[0]),rd=[...new Set(rs.map(r=>r[1]))];
+ rs.forEach(([c,y,ss])=>{ss.forEach(([m,ws])=>ws.forEach(w=>Q.push({k:"z",w,c,m,opts:ch,ans:c})));
+  const w=ss.flatMap(s=>s[1])[0];if(w&&rd.length>1)Q.push({k:"y",w,c,opts:rd,ans:y});});});
+let ans=0,rt=0;
+function draw(){ans=rt=0;const qs=sh(Q).slice(0,10);document.getElementById("tot").textContent=qs.length;
+ document.getElementById("qs").innerHTML="";
+ qs.forEach((q,i)=>{const d=document.createElement("div");d.className="q";
+  const stem=q.k==="z"?`下列詞語「＿」內應填入哪一個字？<br><b>${q.w.replace(new RegExp("「"+q.c+"」","g"),"「＿」")}</b>${q.m?`<br><span class="note">提示：${q.m}</span>`:""}`:`「${q.c}」字在<b>${q.w}</b>中的注音是？`;
+  d.innerHTML=`<div>${i+1}. ${stem}</div>`;
+  const o=sh([q.ans,...sh(q.opts.filter(x=>x!==q.ans)).slice(0,3)]);
+  o.forEach(x=>{const b=document.createElement("button");b.className="o";b.textContent=x;
+   b.onclick=()=>{if(d.dataset.d)return;d.dataset.d=1;ans++;
+    if(x===q.ans){rt++;b.classList.add("ok")}else{b.classList.add("ng");[...d.querySelectorAll("button")].find(z=>z.textContent===q.ans).classList.add("ok")}
+    document.getElementById("an").textContent=ans;document.getElementById("rt").textContent=rt};
+   d.appendChild(b)});
+  document.getElementById("qs").appendChild(d)});
+ document.getElementById("an").textContent=0;document.getElementById("rt").textContent=0}
+document.getElementById("rq").onclick=draw;draw();
+</script></body></html>
